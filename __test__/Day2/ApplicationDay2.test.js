@@ -51,4 +51,9 @@ describe("App", () => {
     const WEAK = "ABCD";
     expect(app.checkPassword(WEAK)).toBe(1);
   });
+
+  test("아무것도 만족하지 못한 경우", () => {
+    const NOTPASSWORD = "abc";
+    expect(app.checkPassword(NOTPASSWORD)).toBe(0);
+  });
 });
