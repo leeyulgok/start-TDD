@@ -7,3 +7,14 @@
  * 2. 0~9 사이의 숫자를 포함
  * 3. 대문자 포함
  */
+
+import App from "../../src/Day2/App";
+
+const app = new App();
+
+describe("App", () => {
+  test("강함", () => {
+    const STRONG = "ab12!@AB";
+    expect(app.checkPassword(STRONG)).toBe(3);
+  });
+});

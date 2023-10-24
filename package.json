@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:day2": "jest __test__/Day2"
   },
   "author": "",
   "license": "ISC",
