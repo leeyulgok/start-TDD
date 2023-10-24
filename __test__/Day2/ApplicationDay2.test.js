@@ -18,23 +18,37 @@ describe("App", () => {
     expect(app.checkPassword(STRONG)).toBe(3);
   });
 
-  test('보통: 길이가 8글자가 안됨', () => {
+  test("보통: 길이가 8글자가 안됨", () => {
     const NORMAL = "ab1AB!2";
     expect(app.checkPassword(NORMAL)).toBe(2);
   });
-  
-  test('보통: 숫자를 포함하지 않음', () => {
+
+  test("보통: 숫자를 포함하지 않음", () => {
     const NORMAL = "abAB!@abc";
     expect(app.checkPassword(NORMAL)).toBe(2);
   });
 
-  test('보통: 대문자를 포함하지 않음', () => {
+  test("보통: 대문자를 포함하지 않음", () => {
     const NORMAL = "ab12!@abc";
     expect(app.checkPassword(NORMAL)).toBe(2);
   });
 
-  test('값이 null인 경우', () => {
+  test("값이 null인 경우", () => {
     expect(app.checkPassword(null)).toBe("INVALID");
   });
 
+  test("약함: 길이만 충족한 경우", () => {
+    const WEAK = "aaaaaaaa";
+    expect(app.checkPassword(WEAK)).toBe(1);
+  });
+
+  test("약함: 숫자만 충족한 경우", () => {
+    const WEAK = "12345";
+    expect(app.checkPassword(WEAK)).toBe(1);
+  });
+
+  test("약함: 대문자만 충족한 경우", () => {
+    const WEAK = "ABCD";
+    expect(app.checkPassword(WEAK)).toBe(1);
+  });
 });
