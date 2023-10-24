@@ -17,4 +17,15 @@ describe("App", () => {
     const STRONG = "ab12!@AB";
     expect(app.checkPassword(STRONG)).toBe(3);
   });
+
+  test('보통: 길이가 8글자가 안됨', () => {
+    const NORMAL = "ab1AB!2";
+    expect(app.checkPassword(NORMAL)).toBe(2);
+  });
+  
+  test('보통: 숫자를 포함하지 않음', () => {
+    const NORMAL = "abAB!@abc";
+    expect(app.checkPassword(NORMAL)).toBe(2);
+  });
+
 });
