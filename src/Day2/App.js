@@ -2,6 +2,10 @@ class App {
   checkPassword(password) {
     let count = 0;
 
+    if(password === null) {
+      return "INVALID"
+    }
+
     if (password.length >= 8) {
       count++;
     }

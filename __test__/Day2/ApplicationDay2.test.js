@@ -28,4 +28,13 @@ describe("App", () => {
     expect(app.checkPassword(NORMAL)).toBe(2);
   });
 
+  test('보통: 대문자를 포함하지 않음', () => {
+    const NORMAL = "ab12!@abc";
+    expect(app.checkPassword(NORMAL)).toBe(2);
+  });
+
+  test('값이 null인 경우', () => {
+    expect(app.checkPassword(null)).toBe("INVALID");
+  });
+
 });
