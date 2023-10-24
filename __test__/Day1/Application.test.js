@@ -1,4 +1,4 @@
-import add from "../src/App";
+import add from "../../src/Day1/App";
 
 describe('App', () => {
   test('add 함수는 두 숫자의 합을 반환한다.', () => {
