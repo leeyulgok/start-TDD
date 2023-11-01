@@ -1,24 +1,34 @@
 class App {
-  async start() {}
-
   expirationDate(payment, date) {
-    if(payment !== 10000) return '구독료가 정확하지 않습니다.';
-    let expDate = new Date(date);
-    
-    let year = expDate.getFullYear();
-    let month = expDate.getMonth() + 2;
-    let day = expDate.getDate();
-    
-    if(month > 12) {
-      month %= 12;
+    const startDate = new Date(date);
+    let year = startDate.getFullYear();
+    let month = startDate.getMonth();
+    let day = startDate.getDate();
+
+    if (payment === 10000) {
+      month += 1;
+    } else if (payment === 100000) {
       year += 1;
+    } else if (payment >= 20000) {
+      month += payment / 10000;
+    } else {
+      return "구독료가 부족합니다.";
     }
 
-    month = month < 10 ? `0${month}` : month;
-    day = day < 10 ? `0${day}` : day;
+    year += Math.floor(month / 12);
+    month %= 12;
 
-    return `${year}-${month}-${day}`;
-  };
+    const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+    if (day > lastDayOfMonth) {
+      day = lastDayOfMonth;
+    }
+
+    month += 1;
+    const formattedMonth = month < 10 ? `0${month}` : month.toString();
+    const formattedDay = day < 10 ? `0${day}` : day.toString();
+
+    return `${year}-${formattedMonth}-${formattedDay}`;
+  }
 }
 
 export default App;
