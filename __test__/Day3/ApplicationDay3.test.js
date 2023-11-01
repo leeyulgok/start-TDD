@@ -38,4 +38,10 @@ describe('구독 서비스 테스트', () => {
     let dateTwo = '2022-08-15';
     expect(app.expirationDate(paymentTwo, dateTwo)).toBe('2022-12-15');
   });
+
+  test('10만 원 납부 시, 만료일', () => {
+    let payment = 100000;
+    let date = '2023-12-31';
+    expect(app.expirationDate(payment, date)).toBe('2024-12-31');
+  });
 });
