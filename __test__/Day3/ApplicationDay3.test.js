@@ -28,4 +28,14 @@ describe('구독 서비스 테스트', () => {
     let dateThree = '2020-01-31';
     expect(app.expirationDate(payment, dateThree)).toBe('2020-02-29');
   });
+
+  test('2개월 이상 이용료 납부 시', () => {
+    let paymentOne = 20000;
+    let dateOne = '2022-11-01';
+    expect(app.expirationDate(paymentOne, dateOne)).toBe('2024-01-01');
+
+    let paymentTwo = 40000;
+    let dateTwo = '2022-08-15';
+    expect(app.expirationDate(paymentTwo, dateTwo)).toBe('2022-12-15');
+  });
 });
