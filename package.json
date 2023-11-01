@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:day2": "jest __test__/Day2"
+    "test:day2": "jest __test__/Day2",
+    "test:day3": "jest __test__/Day3"
   },
   "author": "",
   "license": "ISC",

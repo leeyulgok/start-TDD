@@ -5,3 +5,14 @@
  * 2. 2개월 이상 요금을 납부 가능
  * 3. 10만 원을 납부하면 서비스를 1년 제공
  */
+
+import App from "../../src/Day3/App";
+
+describe('구독 서비스 테스트', () => {
+    const app = new App();
+  test('구독 이용료 납부 시, 한 달 후 만료', () => {
+    let payment = 10000;
+    let date = '2023-12-31';
+    expect(app.expirationDate(payment, date)).toBe('2024-01-31');
+  });
+});
