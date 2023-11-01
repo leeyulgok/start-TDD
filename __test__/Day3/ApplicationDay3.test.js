@@ -15,4 +15,17 @@ describe('구독 서비스 테스트', () => {
     let date = '2023-12-31';
     expect(app.expirationDate(payment, date)).toBe('2024-01-31');
   });
+
+  test('구독 이용료 예외처리', () => {
+    let payment = 10000;
+
+    let dateOne = '2019-01-31';
+    expect(app.expirationDate(payment, dateOne)).toBe('2019-02-28');
+
+    let dateTwo = '2023-05-31';
+    expect(app.expirationDate(payment, dateTwo)).toBe('2023-06-30');
+
+    let dateThree = '2020-01-31';
+    expect(app.expirationDate(payment, dateThree)).toBe('2020-02-29');
+  });
 });
